@@ -11,12 +11,12 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  min-height: 100vh;
 }
 .all-events-container {
   background-color: #323f4b;
   color: white;
   padding: 25px;
-  width: 65%;
 }
 .events-heading {
   margin-bottom: 20px;
@@ -25,11 +25,22 @@ button {
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 }
 .event-result-container {
-  flex-grow: 1;
   padding: 25px;
+}
+.event-result-container {
+  color: #64748b;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  max-width: 400px;
+}
+.no-event-available {
+  align-self: flex-start;
 }

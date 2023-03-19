@@ -1,5 +1,8 @@
 import {Component} from 'react'
 import EventItem from '../EventItem'
+import ActiveEventRegistration from '../ActiveEventRegistrationDetails'
+import AlreadyRegistered from '../AlreadyRegistered'
+import RegistrationClosed from '../RegistrationClosed'
 import './index.css'
 
 const eventsList = [
@@ -51,21 +54,62 @@ const eventsList = [
     registrationStatus: 'REGISTRATIONS_CLOSED',
   },
 ]
+const resultShow = {
+  initial: 'initial',
+  YET_TO_REGISTER: 'YET_TO_REGISTER',
+  REGISTERED: 'REGISTERED',
+  REGISTRATIONS_CLOSED: 'REGISTRATIONS_CLOSED',
+}
 
 class Events extends Component {
+  state = {registrationStatus: resultShow.initial, ActiveId: ''}
+
+  changeStateOfEventRegistration = (id, statusClickedItem) => {
+    this.setState({
+      registrationStatus: resultShow[statusClickedItem],
+      ActiveId: id,
+    })
+  }
+
+  renderAsPerCondition = () => {
+    const {registrationStatus} = this.state
+    switch (registrationStatus) {
+      case 'YET_TO_REGISTER':
+        return <ActiveEventRegistration />
+      case 'REGISTERED':
+        return <AlreadyRegistered />
+      case 'REGISTRATIONS_CLOSED':
+        return <RegistrationClosed />
+      default:
+        return (
+          <p className="no-event-available">
+            Click on an event, to view its registration details
+          </p>
+        )
+    }
+  }
+
   render() {
+    const {ActiveId} = this.state
     return (
       <div className="events-and-results-container">
         <div className="all-events-container">
           <h1 className="events-heading">Events</h1>
           <ul className="event-un-order-lists">
             {eventsList.map(eachEvent => (
-              <EventItem key={eachEvent.id} eventItemDetail={eachEvent} />
+              <EventItem
+                key={eachEvent.id}
+                eventItemDetail={eachEvent}
+                changeStateOfEventRegistration={
+                  this.changeStateOfEventRegistration
+                }
+                isActiveId={ActiveId === eachEvent.id}
+              />
             ))}
           </ul>
         </div>
         <div className="event-result-container">
-          <p>Click on an event, to view its registration details</p>
+          {this.renderAsPerCondition()}
         </div>
       </div>
     )

@@ -1,1 +1,17 @@
-/* Write your CSS here */
+.yet-to-register-container {
+  text-align: center;
+  padding: 25px;
+}
+.registration-img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.register-button-style {
+  color: white;
+  background-color: #0967d2;
+  border: none;
+  width: 100%;
+  padding: 15px 0px 15px 0px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
