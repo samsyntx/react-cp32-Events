@@ -1,0 +1,35 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+button {
+  cursor: pointer;
+}
+.events-and-results-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.all-events-container {
+  background-color: #323f4b;
+  color: white;
+  padding: 25px;
+  width: 65%;
+}
+.events-heading {
+  margin-bottom: 20px;
+}
+.event-un-order-lists {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.event-result-container {
+  flex-grow: 1;
+  padding: 25px;
+}
