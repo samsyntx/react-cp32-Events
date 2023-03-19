@@ -19,9 +19,9 @@ const EventItem = props => {
         <img
           className={`event-img-control ${activeEventItemStyle}`}
           src={imageUrl}
-          alt={name}
+          alt="event"
         />
-        <h1 className="item-heading">{name}</h1>
+        <p className="item-heading">{name}</p>
         <p>{location}</p>
       </button>
     </li>

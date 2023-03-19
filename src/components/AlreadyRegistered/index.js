@@ -7,9 +7,9 @@ const AlreadyRegistered = () => (
       src="https://assets.ccbp.in/frontend/react-js/events-regestered-img.png"
       alt="registered"
     />
-    <p className="already-registered-text">
-      You have already registered for the event.
-    </p>
+    <h1 className="already-registered-text">
+      You have already registered for the event
+    </h1>
   </div>
 )
 export default AlreadyRegistered
